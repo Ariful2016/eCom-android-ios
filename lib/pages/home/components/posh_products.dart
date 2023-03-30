@@ -1,4 +1,5 @@
 import 'package:ecom_firebase/const/constants.dart';
+import 'package:ecom_firebase/pages/details/details_page.dart';
 import 'package:ecom_firebase/pages/home/components/section_title.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,11 @@ class _PoshProductsState extends State<PoshProducts> {
                         top: getProportionateScreenWidth(20),
                     ),
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(),
+                        settings: RouteSettings(arguments: product,),)
+                        );
+                      },
                       child: SizedBox(
                         //width: getProportionateScreenWidth(242),
                         height: getProportionateScreenWidth(120),
@@ -73,8 +78,8 @@ class _PoshProductsState extends State<PoshProducts> {
                                           style: TextStyle(color: kPrimaryColor,
                                               fontSize: getProportionateScreenWidth(15),
                                               fontWeight: FontWeight.w600),),
-                                        Padding(
-                                          padding: const EdgeInsets.only(right: 20),
+                                        const Padding(
+                                          padding: EdgeInsets.only(right: 20),
                                           child: Icon(Icons.more_horiz_outlined),
                                         )
                                       ],

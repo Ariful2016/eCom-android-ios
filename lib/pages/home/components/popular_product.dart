@@ -6,6 +6,7 @@ import '../../../const/size_config.dart';
 import '../../../models/Product.dart';
 import '../../../provider/product_provider.dart';
 import '../../../widgets/product_card.dart';
+import '../../details/details_page.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatefulWidget {
@@ -49,7 +50,11 @@ class _PopularProductsState extends State<PopularProducts> {
                   child: SizedBox(
                     width: getProportionateScreenWidth(140),
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(),
+                          settings: RouteSettings(arguments: product,),)
+                        );
+                      },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
